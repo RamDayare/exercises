@@ -1,0 +1,147 @@
+
+
+#page-container{
+    width: 760px;
+    margin: auto;
+   	font-family:Tahoma;
+	background: #D9D9E0;	
+}
+
+#baner
+{ 
+	background-image:url('../img/banner.jpg');
+	height:180px;
+	width: 760px;
+	background-repeat: no-repeat;
+}
+#header{    
+    background: #D9D9E0;
+	padding-bottom:5px;	
+	height:15px;
+	width:760px;	
+}
+
+#headline
+{
+	font-family:Tahoma;
+	font-size:14px;
+	color:Red;
+}
+#img
+{ 
+	background-image:url('../img/big.jpg');
+	background-repeat: no-repeat;
+	padding-right:190px;
+	height:360px;
+	width:20px;
+	float:left;
+	padding-bottom:20px;
+	margin-top:15px;
+}
+
+#Sidebar{
+    float:right;    
+    background: #FFCCCC;
+	position:absolute;	
+	height:480px;
+}
+
+#LeftContent{
+	float:left;
+    background: white;	
+	width:82%;
+	height:545px;
+	position:relative;
+	margin-top:5px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-right:10px;
+	margin-left:5px;	
+}
+#contentText
+{
+	font-size:10px;	
+	padding-top:5px;	
+}
+
+#Footer{
+    clear:both;
+    background: #D9D9E0;
+	height:70px;
+	padding-top:5px;
+	padding-left:210px;
+	position:relative;	
+}
+#Content{
+    width:100%;	   
+	height:585px;	
+	background: #F59DC2;	
+}
+#site
+{ 	
+	padding-bottom:10px;
+	padding-left:85px;
+	font-family:Tahoma;
+	font-size:10px;
+	height:10px;
+	margin-top:10px;	
+}
+#menu{
+	display:inline;
+	text-decoration:none;
+	font-family:Tahoma;
+	font-size:12px;
+	color:Red;
+}
+#link{
+	text-decoration: none;
+	color: blue;
+}
+.menutextMain
+{
+	float:left;
+	width:92px;
+	text-decoration:none;
+	color:blue;
+	background-color:#D9D9E0; /* #C2EBFF;*/
+	padding:0.2em 0.6em;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.menutextMain:hover
+{
+	color: white;
+	background-color: #0066FF;
+	z-index:1;
+	text-shadow:1px 1px #C0C0C0;
+	font-size:12px;
+	font-family:Tahoma;
+	padding:0.2em 0.6em;
+	float:left;
+}
+
+.menutext
+{
+	float:right;
+	width:93px;
+	text-decoration:none;
+	color:black;
+	background-color:#F59DC2;
+	padding:0.2em 0.6em;
+	font-size:12px;
+	display:inline-table;
+}
+
+.menutext:hover
+{
+	float:right;
+	color: white;
+	background-color: #E60000;
+	z-index:1;
+	text-shadow:1px 1px #C0C0C0;
+	font-size:12px;
+	font-family:Tahoma;
+	padding:0.2em 0.6em;
+}
+
