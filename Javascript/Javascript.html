@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+ <style type="text/css" media="screen">
+ #Main
+{
+style="border-width: 4px; 
+border-style: ridge; 
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+width: 720px;
+margin: auto;
+font-family:Tahoma;
+background: #D9D9E0;	
+}
+
+ </style>
+ 
+    <script type="text/javascript">
+		var count=0,time;
+	    function AddChild () {
+			var text = document.getElementById("txt").value;
+			var listBox = document.getElementById("itemList");
+           	
+			if(text.length>200)
+			{
+				alert("Text length should not more than 200 characters.Please modify the text.");
+			}
+			else
+			{			
+				if(text!="")
+				{
+					var newElem = document.createElement ("li");	
+					var cb = document.createElement("input");
+					cb.type = "checkbox";
+					cb.id = "c1";					
+					cb.checked = false;		
+					cb.value=text;								
+					var desc=document.createTextNode(text);
+					newElem.appendChild(cb);
+					newElem.appendChild(desc);	
+					listBox.appendChild(newElem);	
+											
+					count++;
+				}
+				var countLabel=document.getElementById("Count");
+				timeCalculate();			
+				if(count==1)
+				{
+				countLabel.innerHTML="There is "+count+" item in Item list and the last item was added at "+ time;
+				}
+				else if(count>1)
+				{
+				countLabel.innerHTML="There are "+count+" items in Item list and the last item was added at " + time ;
+				}			
+				document.getElementById("txt").value="";
+				countLabel.style.color = "blue";				
+				
+			}
+			
+			
+        }
+		
+		function timeCalculate()
+		{
+			var currentTime = new Date();
+			var dates=currentTime.getDate();
+			var hours = currentTime.getHours();
+			var minutes = currentTime.getMinutes();
+			if (minutes < 10)
+			{
+				minutes = "0" + minutes;
+			}
+			time= hours + ":" + minutes + " ";
+			if(hours > 11)
+			{
+				time=currentTime.toDateString()+" , "+time+"p.m.";
+			} 
+			else 
+			{
+				time=currentTime.toDateString()+" , "+time+"a.m.";
+			}
+			
+		}
+		function Search ()
+		{
+			window.open("http://www.google.com/#q=" + document.getElementById("searchTxt").value);		
+		}
+			
+	
+    </script>
+
+</head>
+<body >
+	<br />
+	<div id="Main">	
+		<br />
+		<table>
+			<tr height="100px">
+				<td align="center" colspan="2"><H1>Todo Application</H1></td>
+			<tr>
+			<tr height="60px">
+				<td colspan="2"  style="padding-left:50px;">
+					<label id="Count"></label><br /><br />		
+				</td>
+			</tr>
+			<tr>
+				<td width="60%" style="padding-left:50px;">
+					<input type="text" id="txt" size="20">
+					
+					<button id="btn" onclick='AddChild ();'>Add</button>
+					<br />
+					<ul style="list-style-type:none;" id="itemList" >This is my first item to do!!<br />
+					</ul>
+		
+				</td>
+				<td valign="top">
+		
+					<input type="text" id="searchTxt" size="18">
+					<button id="btn" onclick='Search ();'>Google Search</button>
+					<br />
+					
+				</td>
+			</tr>
+		</table>
+	<div>
+	<br />
+</body>
+</html>
