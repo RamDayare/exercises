@@ -1,0 +1,72 @@
+<html>
+<head>
+<style type="text/css" media="screen">
+#main{
+border-color: black;
+border: solid 2px;
+height:100%;
+width:100%;
+font-family:Tahoma;
+font-size:12px;
+}
+#right
+{
+margin-top:10px;
+}
+
+#divAbsolute
+{
+	position:absolute;	
+	background-image:url('../img/big.jpg');
+	background-repeat: no-repeat;	
+	height:60%;
+	width=100%;
+	left:-20px;
+}
+
+#divAbsolutea
+{	
+	margin-left:30%;
+	margin-top:20px;
+}
+
+#divFixed {
+	position:Fixed;
+ 	background-image:url('../img/big.jpg');
+	background-repeat: no-repeat;	
+	top:200;
+	left:10;
+	height:60%;
+	width=100%;
+	margin-top:200px;	
+}
+#divFixeda
+{
+	position:relative;
+	float:right;
+	margin-left:250px;
+	margin-top:20px;
+}
+</style>
+</head>
+<body>
+<div id="main">	
+	
+	<div id="divAbsolute"> 	
+		<div id="divAbsolutea"><b>3. position:absolute</b></br></br>
+		When you specify position:absolute, the element is removed from the document and placed exactly where you tell it to go.
+		The element is positioned relative to its first positioned (not static) ancestor element.So we can see Image is positioned out of the document 
+		by adding attribute like "left:-20px;". 
+		 </div>
+	</div>
+			
+	<div id="divFixed"> 
+		<div id="divFixeda"> <b>4. position:fixed</b></br></br>
+		The element is positioned relative to the browser window.If you resize ,scroll up and scroll down the window then image location would not change when position is fixed.
+		</div>
+	
+	</div>		
+</div>
+
+</body>
+</html>
