@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="lib/jquery.metadata.js"></script>
+<script type="text/javascript" src="script/jquery.validate.js"></script>
+
+<script type="text/javascript">
+
+$().ready(function() {
+
+	$("#commentForm").validate({	
+	debug:true,
+	rules:   { list: 
+				{
+				required: true,
+				minlength:2	
+				}},	
+	});
+	
+		if ($("#checkme").is(":checked"))
+		{
+			
+			$('#chkList').show("fast");
+			$('#lbl').show("fast");
+		}
+		else
+		{			
+			$('#chkList').css("display","none");
+			$('#lbl').css("display","none");
+		}
+	   
+	   $("#checkme").click(function(){
+
+		// If checked
+		if ($("#checkme").is(":checked"))
+		{		
+			$('#chkList').show("fast");
+			$('#lbl').show("fast");
+		}
+		else
+		{		
+			$('#chkList').hide("fast");
+			$('#lbl').hide("fast");
+			
+		}
+	  }); 
+	 
+});
+</script>
+
+<style type="text/css">
+form.cmxform { width: 720px;}
+
+</style>
+
+</head>
+<body>
+
+	<form class="cmxform" id="commentForm" method="get" action="">
+
+		<div id="example" class="flora">
+	       
+	        <div id="fragment-1">
+					<fieldset id="fields">
+						<TABLE border=0 cellpadding=5 cellspacing=0 width="720px">
+						<TH colspan=2 >
+							<legend>Form with validation & messages</legend></br></br>
+						</TH>
+						<TR>
+						<td width="30%">
+							<label for="fname">FirstName</label></td>
+							<td><input id="fname" name="firstname" title=" Please enter your firstname" class="required" minLength="2" />
+							</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="lname">LastName</label></td>
+							<td><input id="lname" name="lastname" title=" Please enter your lastname" class="required" minLength="2"/>
+						</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="uname">UserName</label></td>
+							<td><input id="uname" name="username" title=" Please enter a userName" class="required" minLength="2" />
+						</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="pass">Password</label></td>
+							<td><input id="pass" type="password" name="password" title=" Please provide your password" class="required" minLength="2" />
+						</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="cpass">Confirm Password</label></td>
+							<td><input id="cpass" type="password" name="cpassword" title=" Please provide your password" class="required" minLength="2" />
+						</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="cemail">E-Mail </label></td>
+							<td><input id="cemail" name="email" title=" Please enter valid email address" class="{required:true,email:true}" />
+						</td>						
+						</TR>
+						<TR>
+						<td>
+							<label for="policy">Please agree to our policy </label></td>
+							<td><input type="checkbox" id="cpolicy" name="policee" title=" Please accept our policy" class="required" />
+						</td>						
+						</TR>						
+						<TR>
+						<td>
+							<label for="nletter">I'd like to receive the newsletter</label></td>
+							<td><input type="checkbox" id="checkme" name="newsletter" />
+						</td>						
+						</TR>
+						
+						<tr  id="last">
+						<td><div id="lbl">Topics</div></td>
+						<td>
+							<div id="chkList">
+								<input name="list" id="list0" type="checkbox"  value="Marketflash"/> Marketflash</br>
+								<input name="list" id="list1" type="checkbox"  value="Latestfuzz"/> Latest fuzz</br>
+								<input name="list" id="list2" type="checkbox"  value="Mailinglist"/> Mailing list digester</br>		
+							<label for="list" generated="true" class="error" style="display: inline;">Please select at least two topics you'd like to receive.</label>									
+							</div>
+						</td>
+						</tr>
+											
+						</table>						
+					</fieldset>
+
+	        </div>	      
+			<p><input class="submit" type="submit" value="Submit"/></p>	
+	    </div>
+		
+
+	</form>
+
+</body>
+</html>
