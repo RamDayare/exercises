@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Using Form Selectors and Filters</title>
+      <!-- Add JQuery here -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+              $('#button1').toggle(function() {
+                  $("form :input").css("border", "3px solid red");
+              }, function() {
+                  $("form :input").css("border", "");
+              });
+			  
+			$('#button2').click(function(){				
+				var input = $("form input:checkbox").parent().css({background:"yellow", border:"3px red solid"});				
+			});
+			
+			$('#button3').click(function(){  var n = $("input:checked").length;  
+				$("div").text(n-1 + " checkboxes " + (n <= 1 ? " is" : " are") + " checked!");});
+			
+			$('#button4').click(function(){ 
+				$("input:disabled").css("border", "3px solid red");
+			});
+			
+			$( "#content" ).delegate( "*", "focus blur", function( event ) {    var elem = $( this ); 
+			setTimeout(function() {       elem.toggleClass( "focused", elem.is( ":focus" ) );    }, 0);});
+			
+			$('#button5').click(function(){ 
+			var input = $("form input:radio").wrap('<span></span>').parent().css({background:"yellow", border:"3px red solid"});    
+			});			
+		
+			$('#button6').click(function(){ 
+			var submitEl = $("td :submit").parent('td').css({background:"yellow", border:"3px red solid"}).end();
+			});
+			
+			$('#button7').click(function(){ 
+			 var input = $("form input:text").css({background:"yellow", border:"3px red solid"});
+			 });
+			 
+			 $('#button8').click(function(){ 
+				window.location.reload(true);
+			 });
+			 
+          });
+      </script>
+      <style type="text/css">
+          .style1 {
+              width: 600px;
+          }
+
+          .style2 {
+              width: 200px;
+        }
+		  
+		.marked { background-color: yellow; border: 3px red solid; }
+		.focused {    background: #abcdef;}
+		div { color:red; }
+      </style>
+  </head>
+  <body>
+
+  <h1>
+      Example Form Document</h1>
+
+  <form action="" method="post">
+
+      <table class="style1">
+          <tbody>
+          <tr>
+              <td class="style2">
+                  First Name
+              </td>
+              <td>
+                  <input id="FirstName" type="text"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Last Name
+              </td>
+              <td>
+                  <input id="LastName" type="text"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Disabled Element
+              </td>
+              <td>
+                  <input id="Text1" type="text" disabled="disabled"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Gender
+              </td>
+              <td>
+                  <input id="Male" type="radio" checked="checked"/>M<input id="Female" type="radio"/>F
+              </td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  What products are you interested in?
+              </td>
+              <td>
+                  <input id="Checkbox1" type="checkbox" checked="checked"/><label for="Checkbox1">Widgets</label><br/>
+                  <input id="Checkbox2" type="checkbox"/><label for="Checkbox1">Hibbity Jibbities</label><br/>
+                  <input id="Checkbox3" type="checkbox" checked="checked"/><label
+                      for="Checkbox1">SplashBangers</label><br/>
+                  <input id="Checkbox4" type="checkbox"/><label for="Checkbox1">Whatzits</label></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Comments:
+              </td>
+              <td>
+                  <textarea id="Comments" cols="40" name="S1" rows="5"></textarea></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Optional life story file
+              </td>
+              <td>
+                  <input id="File1" type="file"/></td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  &nbsp;</td>
+              <td>
+                  &nbsp;</td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  &nbsp;</td>
+              <td>
+                  <input id="Submit1" type="submit" value="submit"/>
+                  </td>
+				  <td><input id="Reset1" type="reset" value="reset"/></td>
+          </tr>
+          </tbody>
+      </table>	 
+		<div id="content">
+		<input tabIndex="1" value="Focus Selector">   		
+		</div>
+  </form>
+	<input type="button" id="button1" value="Select All Form input"/>
+    <input type="button" id="button2" value="Checkbox Selector"/>
+	<input type="button" id="button3" value="Checked Selector"/>
+	<input type="button" id="button4" value="Disabled Selector"/>
+	<input type="button" id="button5" value="Radio Selector"/>
+	<input type="button" id="button6" value="submit Selector"/>
+	<input type="button" id="button7" value="Text Selector"/>
+	<input type="button" id="button8" value="Refresh"/>
+  </body>
+  </html>

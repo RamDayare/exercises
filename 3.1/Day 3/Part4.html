@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Using Form Selectors and Filters</title>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+             /* Blur Exercise */
+			$('#FirstName').blur(function(){
+					$(this).css("color","Red");	 
+			});
+			 
+			 /* Change Exercise */
+			$("#LastName").change(function(){
+				$(this).css("background-color","#FFFFCC");
+			});
+			
+			$("change").click(function(){
+				$("#LastName").change();
+			});
+			 
+			 /* Focus Exercise */
+			$("#focus").click(function(){				
+				$("#FirstName").focus();
+				$("#FirstName").css("background-color","#FFFFCC");
+			});  
+			
+			/*Select Exercise */
+			$("#select").click(function(){
+				$("#Name").select();
+			});  
+			
+			/* Submit Exercise */
+			$("form").submit(function(e){
+			alert("Form Submitted");
+			});
+			
+			/* Refresh Page */
+			$('#refresh').click(function(){ 
+				window.location.reload(true);
+			});
+			
+          });
+      </script>
+      <style type="text/css">
+          .style1 {
+              width: 600px;
+          }
+
+          .style2 {
+              width: 200px;
+          }
+      </style>
+  </head>
+  <body>
+
+  <h1>
+      Example Helper Methods</h1>
+
+  <form action="" method="post">
+
+      <table class="style1">
+          <tbody>
+          <tr>
+              <td class="style2">
+                   <input id="FirstName" type="text"/>
+              </td>
+              <td>Enter text and blur. </td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  <input id="LastName" type="text"/>
+              </td>
+              <td>
+                Enter text then click Change.
+			  </td>
+          </tr>
+		  <tr>
+              <td class="style2">
+                  <input id="Name" type="text" value="Hello!"/>
+              </td>
+              <td>
+                <input type="button" id="select" value="Select"/> 
+			  </td>
+          </tr>
+			<tr>
+              <td class="style2">
+                 <input type="button" id="focus" value="Set Focus"/> 
+              </td>
+              <td>
+                <input type="button" id="change" value="Change"/> 
+			  </td>
+          </tr>
+		  
+		  <tr>
+              <td class="style2">
+                 <input type="button" id="refresh" value="Refresh"/> 
+              </td>
+              <td>
+               <input type="submit" value="Submit">
+			  </td>
+          </tr>
+		  
+          </tbody>
+      </table>
+
+  </form>
+ 
+  </body>
+  </html>

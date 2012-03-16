@@ -1,0 +1,115 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Events with jQuery</title>
+	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+            $("document").ready(function() {		 
+
+          function highlight(evt) {
+              $("#evtTarget").toggleClass("highlighted");
+          }
+		  
+		   /* Bind Excercise */
+			$('#evtTarget').bind({click:function() {
+					$("#evtTarget").css("border", "3px solid green");
+				},
+				mouseenter :function() {
+				 $("#evtTarget").css("background", "White");
+				},
+			    mouseleave:function() {
+				 $("#evtTarget").css("background", "yellow");
+				 $("#evtTarget").css("border", "none");
+				 }
+			});
+			
+			/* Delegate Exercise */
+			$("body").delegate("p", "click1", function(e, myName, myValue){
+				$(this).text("Delegate scans only specified element and attached events to it!");      
+				$("span").text("Delegate button clicked!").fadeIn(30).fadeOut(1000);
+			});
+			    
+			$("#delegate").click(function () { 
+			$("p").trigger("click1");    
+			});
+			
+			
+			/* .Live Exercise */
+			$("SPAN").live("click", function(){
+				$(this).after("<p>Another paragraph!</p>");
+			});
+			
+			/* .One Exercise */
+			$("#One").one("click",function(){
+				$(this).after("<p>Another paragraph!</p>");		
+			});
+			
+			/*ON-Off Exercise */
+			function aClick() {
+			$("#OnOff").show().fadeOut("slow");
+			}
+			
+			$("#bind").click(function () {
+			$("body").on("click", "#theone", aClick).find("#theone").text("Can Click!");
+			});
+			
+			$("#unbind").click(function () { 
+			$("body").off("click", "#theone", aClick).find("#theone").text("Does nothing...");
+			});
+				
+			/* Trigger Exercise- It triggers Refresh button functionality implemented below in button8 */
+			$("#trigger").click(function () {
+			$("#button8").trigger('click');
+			$("#OnOff").text("Trigger button clicked!");
+			});
+			
+			/* Refresh Page */
+			$('#button8').click(function(){ 
+				window.location.reload(true);
+			 });
+		});
+      </script>
+      <style type='text/css'>
+          .normal {
+              width: 300px;
+              height: 200px;
+              background-color: Yellow;
+              font-size: 14pt;
+			  
+          }
+		.main{
+			font-family:Tahoma;
+				 font-size:14px;
+			}
+          .highlighted {
+              background-color: Red;
+          }
+		  
+		  p { color:red; }  
+		  span { color:blue; }
+		 
+		  
+      </style>
+  </head>
+  <body class="main">
+  <h1>Binding Event Example</h1> 
+   <div id="evtTarget" class="normal">Mouse over this div to see the effect. Click on it to unbind the mouseover.</div><br />
+   <SPAN>".live" scans  whole Document for specified element..<b>Click here!</b> </SPAN><br /><br />
+  
+   <div id="OnOff">ON - Off events</div><br />
+   <div id="One" style="color:blue">".one" event- The handler is executed at most once per element.<b>Click Here!</b> </div><br />
+	  <p>Trigger with custom event.</p> 
+	<input type="button" id="button8" value="Refresh  "/> <br /> 
+	<button id="delegate">Delegate</button><br />
+	<button id="trigger" style="width:70px">Trigger</button><br/>
+    <button id="theone">Does nothing...</button>
+	<button id="bind">ON</button>
+	<button id="unbind">OFF</button><br />
+	
+	<div style="display:none;">Click!</div>
+	 <br />
+  
+  </body>
+  </html>
