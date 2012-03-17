@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+fieldset { margin-bottom: 1em; }
+input { display: block; margin-bottom: .25em; }
+#print-output {
+  width: 100%;
+}
+.print-output-line {
+  white-space: pre;
+  padding: 5px;
+  font-family: monaco, monospace;
+  font-size: .7em;
+}
+
+</style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="http://api.jquery.com/scripts/events.js"></script>
+</head>
+<body>
+  <form>
+  <fieldset>
+	<label for="limit">Enter number of characters to input:</label>
+    <input id="limit" type="text"/></br>
+    <label for="target">Type Something:</label>
+    <input id="target" type="text" /> </br>
+	 <input type="button" class="btn" id="reset" value="Reload Page" />
+  </fieldset>
+</form>
+<div></div>
+
+
+<script>
+	$(document).ready(function(){
+ 
+	$("#target").keyup(function(event) { 
+		checkLimit(event,this); 
+	});
+
+   function checkLimit(event,obj)
+   {
+	   var charLength = $(obj).val().length; 
+	   var charLimit = $(obj).attr("limit");
+	   var charLimit = $('#limit').val();
+	   var charLeft=charLimit;  
+	   
+	   charLeft=charLimit-charLength;
+	  
+	   if(charLeft>0)
+	   {
+			msg = "You have " + charLeft + " characters lefts.";
+	   }      
+	   else if( charLength>charLimit-1 )
+	   {   
+			msg = "You have reached textarea limit of " + charLimit + " characters.";
+	   }    
+	   $.print( msg, "html" );
+   }
+
+	$("#target").keypress(function(event) {
+		var charLimit = $('#limit').val();
+		if ( $(this).val().length > charLimit-1 ) 
+		{     
+			if ( !(event.which == '46' || event.which == '8' || event.which == '13') ) // backspace/enter/del          
+			{
+				event.preventDefault();
+			}		
+		}   
+	})
+	
+	$('#reset').click(function(){
+			window.location.reload(true);
+	})
+});
+
+</script>
+
+</body>
+</html>

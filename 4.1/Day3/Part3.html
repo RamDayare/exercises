@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript">
+      $("document").ready(function() {          
+			$('#button').click(function() {
+				UpperCase();	
+			})
+			
+			$('#button').dblclick(function() {
+				var txt=$('P').text();
+				$('P').text(txt.toLowerCase());
+				$('#button').attr('value','Change to UpperCase');
+            })
+			
+			function UpperCase()
+			{
+				var txt=$('P').text();
+				$("P").text(txt.toUpperCase());			
+				$('#button').attr('value','Dblclk to make LowerCase');
+			}
+					
+		});
+  </script>
+  
+  </head>
+  <body>
+  
+	 <span>This is Span tag</span> </br>		
+	 <P>This is paragraph.</P>
+     <div>This is DIV tag</DIV></br></br>	 
+	 <input type="button" class="btn" id="button" value="Change to UpperCase" />  
+	  
+  </body>
+  </html>
